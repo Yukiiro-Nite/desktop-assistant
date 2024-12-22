@@ -1,0 +1,39 @@
+.LogItemDisplay {
+  position: relative;
+  margin-top: 2rem;
+  margin-left: auto;
+  background-color: lightgray;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-right-radius: 0;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    2px 2px 8px #00000080;
+  max-width: 75%;
+}
+
+.LogItemDisplay.left {
+  margin-left: 0;
+  margin-right: auto;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+}
+
+.LogItemDisplay h2 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+}
+
+.LogItemDisplay time {
+  color: #000000AA;
+  font-size: 0.75rem;
+}
+
+.LogItemDisplay p {
+  margin: 0;
+  margin-top: 0.5rem;
+}

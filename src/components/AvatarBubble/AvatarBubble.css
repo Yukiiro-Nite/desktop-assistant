@@ -1,0 +1,62 @@
+.AvatarBubble {
+  --offset: 55deg;
+  --angle: 35deg;
+}
+
+.ImageWrapper {
+  display: flex;
+  z-index: 1;
+  width: 128px;
+  height: 128px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    2px 2px 4px #00000080;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  position: relative;
+  z-index: 1;
+}
+
+.ImageWrapper img {
+  display: flex;
+  background-color: black;
+  width: calc(128px - 32px);
+  height: calc(128px - 32px);
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px #FFFFFF80,
+    -2px -2px 4px #00000080;
+}
+
+.AvatarBubble .options {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  top: 50%;
+  left: 50%;
+}
+
+.AvatarBubble .options li {
+  --index: 0;
+  z-index: 2;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  
+  top: calc(sin(var(--index) * var(--angle) + var(--offset)) * (64px + 2rem) * -1);
+  left: calc(cos(var(--index) * var(--angle) + var(--offset)) * (64px + 2rem));
+}
+
+.AvatarBubble li button {
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: lightgrey;
+  border: none;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    2px 2px 4px #00000080;
+}

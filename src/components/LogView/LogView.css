@@ -1,0 +1,89 @@
+.WindowView.LogView .Content {
+  position: relative;
+  font-family: sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.LogList {
+  list-style: none;
+  padding: 0;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.LogView .LogSettings {
+  color: var(--color);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2rem);
+  background: var(--bg-color);
+  padding: 0.5rem 1rem calc(0.5rem + 4px) 1rem;
+  z-index: 1;
+  box-shadow: 0 2px 4px #00000080,
+    inset 0 -4px 4px #00000080;
+}
+
+.LogView .LogSettings summary {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.LogView .LogSettings button {
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 10rem;
+  background-color: lightgrey;
+  border: none;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    2px 2px 4px #00000080;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.LogView .ChatForm {
+  position: sticky;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 2rem);
+  background: var(--bg-color);
+  padding: calc(0.5rem + 4px) 1rem 0.5rem 1rem;
+  z-index: 1;
+  box-shadow: inset 0 4px 4px #FFFFFF80;
+}
+
+.LogView .ChatForm label {
+  flex: 1;
+}
+
+.LogView .ChatForm label textarea {
+  border-radius: 4px;
+  width: calc(100% - 8px);
+  resize: none;
+  font-size: 1rem;
+}
+
+.LogView .ChatForm button {
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: lightgrey;
+  border: none;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    2px 2px 4px #00000080;
+}

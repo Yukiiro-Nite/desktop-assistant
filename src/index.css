@@ -1,0 +1,21 @@
+:root {
+  --bg-color: grey;
+  --color: white;
+}
+
+body {
+  margin: 0;
+  background-color: transparent;
+  overflow: hidden;
+  color: var(--color)
+}
+
+.no-drag-select {
+  /* Prevent dragging / selecting on the image */
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

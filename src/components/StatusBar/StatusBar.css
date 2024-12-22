@@ -1,0 +1,44 @@
+.StatusBar {
+  position: absolute;
+  z-index: 0;
+  left: calc(128px - 64px);
+  padding: 1rem 1rem 1rem calc(64px + 1rem);
+  background-color: var(--bg-color);
+  display: flex;
+  border-top-right-radius: 128px;
+  border-bottom-right-radius: 128px;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    2px 2px 4px #00000080;
+}
+
+.StatusBar h2 {
+  margin: 0;
+}
+
+.StatusBar p {
+  margin: 0;
+  padding: 0;
+}
+
+.StatusBar ul {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 2rem;
+}
+
+.StatusBar li button {
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  background-color: lightgrey;
+  border: none;
+  box-shadow: inset 2px 2px 4px #FFFFFF80,
+    inset -2px -2px 4px #00000080,
+    0 0 4px #00000080;
+}

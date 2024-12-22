@@ -1,0 +1,7 @@
+.MiniView {
+  position: absolute;
+  /* background-color: #ff000040; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
