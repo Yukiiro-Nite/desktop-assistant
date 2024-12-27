@@ -9,6 +9,7 @@ export interface SettingsStore {
   idleImg?: string
   thinkingImg?: string
   speakingImg?: string
+  baseUrl: string
   setAudioInputDevice: (value: string) => void
   setBackgroundColor: (value: string) => void
   setForegroundColor: (value: string) => void
@@ -16,6 +17,7 @@ export interface SettingsStore {
   setIdleImg: (value?: string) => void
   setThinkingImg: (value?: string) => void
   setSpeakingImg: (value?: string) => void
+  setBaseUrl: (value?: string) => void
 }
 
 export const useSettingsStore = create<SettingsStore>()(
@@ -28,6 +30,7 @@ export const useSettingsStore = create<SettingsStore>()(
       idleImg: undefined,
       thinkingImg: undefined,
       speakingImg: undefined,
+      baseUrl: 'http://localhost:11434',
       setAudioInputDevice: (value) => {set({ audioInputDevice: value })},
       setBackgroundColor: (value) => {set({ backgroundColor: value })},
       setForegroundColor: (value) => {set({ foregroundColor: value })},
@@ -35,6 +38,7 @@ export const useSettingsStore = create<SettingsStore>()(
       setIdleImg: (value) => {set({ idleImg: value })},
       setThinkingImg: (value) => {set({ thinkingImg: value })},
       setSpeakingImg: (value) => {set({ speakingImg: value })},
+      setBaseUrl: (value) => {set({ baseUrl: value })}
     })),
     {
       name: 'settingsStore',

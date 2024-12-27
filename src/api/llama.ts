@@ -11,8 +11,8 @@ export interface ChatMessage {
   images?: string[]
 }
 
-export const readTextFromImage = async (imageData: string) => {
-  const url = `http://localhost:11434/api/chat`
+export const readTextFromImage = async (baseUrl: string, imageData: string) => {
+  const url = `${baseUrl}/api/chat`
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -36,8 +36,8 @@ export const readTextFromImage = async (imageData: string) => {
   return data?.message as AgentMessage
 }
 
-export const chat = async (messages: ChatMessage[]) => {
-  const url = `http://localhost:11434/api/chat`
+export const chat = async (baseUrl: string, messages: ChatMessage[]) => {
+  const url = `${baseUrl}/api/chat`
   const response = await fetch(url, {
     method: 'POST',
     headers: {

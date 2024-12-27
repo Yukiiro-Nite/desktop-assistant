@@ -20,6 +20,7 @@ export const SettingsView = () => {
     idleImg,
     thinkingImg,
     speakingImg,
+    baseUrl,
     setAudioInputDevice,
     setBackgroundColor,
     setForegroundColor,
@@ -27,6 +28,7 @@ export const SettingsView = () => {
     setIdleImg,
     setThinkingImg,
     setSpeakingImg,
+    setBaseUrl
   } = useSettingsStore()
   const [micOptions, setMicOptions] = useState<OptionData[]>([])
   const getMicOptions = useCallback(async () => {
@@ -79,6 +81,11 @@ export const SettingsView = () => {
     const imageData = await getImageData(event)
     setSpeakingImg(imageData)
   }, [setSpeakingImg])
+
+  const handleBaseUrlChange = useCallback((event: ChangeEvent) => {
+    const target = event.target as HTMLInputElement
+    setBaseUrl(target.value)
+  }, [setBaseUrl])
 
   const voiceOptions = speechSynthesis.getVoices().map((synthVoice) => {
     return {
@@ -175,6 +182,15 @@ export const SettingsView = () => {
         <input
           type="file"
           onChange={handleSpeakingImageChange}
+        ></input>
+      </label>
+
+      <h2>🤖 AI API</h2>
+      <label>
+        <span>Base URL</span>
+        <input
+          onChange={handleBaseUrlChange}
+          value={baseUrl}
         ></input>
       </label>
     </WindowView>

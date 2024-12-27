@@ -3,12 +3,14 @@ import { LogType, useLogStore } from "../stores/logStore"
 import { chat, ChatMessage } from "../api/llama"
 import { useSpeech } from "./useSpeech"
 import { AgentStatus, useAgentStore } from "../stores/agentStore"
+import { useSettingsStore } from "../stores/settingsStore"
 
 export interface ChatFormElements extends HTMLFormControlsCollection {
   input: HTMLTextAreaElement
 }
 
 export const useSendChat = () => {
+  const baseUrl = useSettingsStore((state) => state.baseUrl)
   const scrollableRef = useRef<HTMLElement>(null)
   const [disableInput, setDisableInput] = useState(false)
   const { logs, addLog } = useLogStore()
@@ -38,7 +40,7 @@ export const useSendChat = () => {
     setAgentStatus(AgentStatus.thinking)
     
 
-    chat(messages)
+    chat(baseUrl, messages)
       .then((agentMessage) => {
         const text = agentMessage.content ?? ''
         addLog({ type: LogType.assistant, content: text })
@@ -55,7 +57,7 @@ export const useSendChat = () => {
         setDisableInput(false)
       })
 
-  }, [logs, setDisableInput, addLog, speak, setAgentStatus])
+  }, [logs, setDisableInput, addLog, speak, setAgentStatus, baseUrl])
 
   return {
     sendChat,

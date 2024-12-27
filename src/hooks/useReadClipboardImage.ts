@@ -3,8 +3,10 @@ import { LogType, useLogStore } from "../stores/logStore"
 import { readTextFromImage } from "../api/llama"
 import { useSpeech } from "./useSpeech"
 import { AgentStatus, useAgentStore } from "../stores/agentStore"
+import { useSettingsStore } from "../stores/settingsStore"
 
 export const useReadClipboardImage = () => {
+  const baseUrl = useSettingsStore((state) => state.baseUrl)
   const addLog = useLogStore((state) => state.addLog)
   const setAgentStatus = useAgentStore((state) => state.setAgentStatus)
   const speak = useSpeech()
@@ -22,10 +24,10 @@ export const useReadClipboardImage = () => {
     // Will need to set up state data round this for animations and loading indicators.
     addLog({ type: LogType.system, content: `Asking agent to read image data`})
     setAgentStatus(AgentStatus.thinking)
-    const agentMessage = await readTextFromImage(imageData)
+    const agentMessage = await readTextFromImage(baseUrl, imageData)
     addLog({ type: LogType.imageReader, content: agentMessage.content ?? '' })
     speak(agentMessage.content ?? '')
-  }, [addLog, speak, setAgentStatus])
+  }, [addLog, speak, setAgentStatus, baseUrl])
 
   return readClipboardImage
 }
